@@ -53,24 +53,3 @@ print(report)
 
 
 
-'''
-def city_zip_input(prompt):
-        user_input = input(prompt)
-        return user_input
-# Testing Testing Testing
-client = WeatherClient(api_key=API_KEY)
-my_client = client.weather_fetch("Dallas", "75249")
-print(my_client)
-
-
-while True:
-    user_zip = input("Enter the zipcode: ")
-    if len(user_zip) != 5:
-        print("Invalid Zipcode")
-    elif len(user_zip) == 5 and user_zip.isdigit():
-        break
-
-my_client = client.weather_fetch(user_city, user_zip)
-print(my_client)
-
-'''
