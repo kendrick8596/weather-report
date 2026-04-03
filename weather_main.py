@@ -11,16 +11,18 @@ API_KEY = os.getenv("WEATHER_API_KEY")
 
 def main():
     # Create the instance and pass the inputs as arguments
-    client = WeatherClient(api_key=API_KEY)
+    my_client = WeatherClient(api_key=API_KEY)
     user_city = input("Enter the city: ")
     user_state = input("Enter State: ")
 
+    result = my_client.weather_fetch(user_city, user_state)
 
-    my_client = client.weather_fetch(user_city, user_state)
-    #print(my_client)
-
-    report = WeatherReport(my_client)
-    print(report)
+    if "error" in result:
+        error_msg = result.get("message", "Unknown error occured!")
+        print(f"Error: {error_msg}")
+    else:
+        report = WeatherReport(result)
+        print(report)
 
 if __name__ == "__main__":
     main()

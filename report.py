@@ -1,4 +1,5 @@
 class WeatherReport:
+   
     def __init__(self, data_dict):
         self.temp = data_dict['current']['temp_f']
         self.humidity = data_dict['current']['humidity']
